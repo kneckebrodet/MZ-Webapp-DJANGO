@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Player Data Grid</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+<body>
+    <h1>Player Data</h1>
+    <div class="grid-container">
+        {% for player in players %}
+        <div class="player-box">
+            <div class="player-top">
+                <h4 class="name">{{ player.number }}. {{ player.name }}</h4>
+                <table class="info-table">
+                    <tr><td class="info">Value: {{ player.value }}</td><td class="info">Age: {{ player.age }}</td></tr>
+                    <tr><td class="info">Salary: {{ player.salary }}</td><td class="info">Born: {{ player.born }}</td></tr>
+                </table>
+            </div>
+            <div class="player-bottom">
+                <table class="attr-table">
+                    <tr><td class="attribute">Speed</td><td class="balls" data-value="{{ player.speed }}"></td><td class="nrOfBalls">({{ player.speed }})</td></tr>
+                    <tr><td class="attribute">Stamina</td><td class="balls" data-value="{{ player.stamina }}"></td><td class="nrOfBalls">({{ player.stamina }})</td></tr>
+                    <tr><td class="attribute">P.Intelligence</td><td class="balls" data-value="{{ player.play_intelligence }}"></td><td class="nrOfBalls">({{ player.play_intelligence }})</td></tr>
+                    <tr><td class="attribute">Passing</td><td class="balls" data-value="{{ player.passing }}"></td><td class="nrOfBalls">({{ player.passing }})</td></tr>
+                    <tr><td class="attribute">Shooting</td><td class="balls" data-value="{{ player.shooting }}"></td><td class="nrOfBalls">({{ player.shooting }})</td></tr>
+                    <tr><td class="attribute">Heading</td><td class="balls" data-value="{{ player.heading }}"></td><td class="nrOfBalls">({{ player.heading }})</td></tr>
+                    <tr><td class="attribute">Keeping</td><td class="balls" data-value="{{ player.keeping }}"></td><td class="nrOfBalls">({{ player.keeping }})</td></tr>
+                    <tr><td class="attribute">Ball Control</td><td class="balls" data-value="{{ player.ball_control }}"></td><td class="nrOfBalls">({{ player.ball_control }})</td></tr>
+                    <tr><td class="attribute">Tackling</td><td class="balls" data-value="{{ player.tackling }}"></td><td class="nrOfBalls">({{ player.tackling }})</td></tr>
+                    <tr><td class="attribute">A.Passing</td><td class="balls" data-value="{{ player.aerial_passing }}"></td><td class="nrOfBalls">({{ player.aerial_passing }})</td></tr>
+                    <tr><td class="attribute">Set Plays</td><td class="balls" data-value="{{ player.set_plays }}"></td><td class="nrOfBalls">({{ player.set_plays }})</td></tr>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Add JavaScript just before the closing body tag -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const ballImageSrc = "{% static 'images/ball.png' %}"; // Update with your ball image path
+
+        document.querySelectorAll('.balls').forEach(element => {
+            const value = parseInt(element.getAttribute('data-value'), 10);
+            if (!isNaN(value)) {
+                let html = '';
+                for (let i = 0; i < value; i++) {
+                    html += `<img src="${ballImageSrc}" alt="Ball" class="ball-image" />`;
+                }
+                element.innerHTML = html;
+            }
+        });
+    });
+    </script>
+</body>
+</html>

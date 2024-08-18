@@ -1,0 +1,22 @@
+from django.db import models
+
+class Player(models.Model):
+    number = models.IntegerField()
+    name = models.CharField(max_length=100)
+    value = models.CharField(max_length=100)
+    salary = models.CharField(max_length=100)
+    age = models.IntegerField()
+    born = models.IntegerField()
+    speed = models.IntegerField()
+    stamina = models.IntegerField()
+    play_intelligence = models.IntegerField()
+    passing = models.IntegerField()
+    shooting = models.IntegerField()
+    heading = models.IntegerField()
+    keeping = models.IntegerField()
+    ball_control = models.IntegerField()
+    tackling = models.IntegerField()
+    aerial_passing = models.IntegerField()
+    set_plays = models.IntegerField()
+    experience = models.IntegerField()
+    form = models.IntegerField()

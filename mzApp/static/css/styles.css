@@ -1,0 +1,104 @@
+/* Ensure the overall font and box-sizing are consistent */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(228px, 1fr)); /* Auto-fit columns with a minimum width */
+    gap: 10px; /* Space between items */
+    justify-content: center; /* Center the grid in the container */
+    margin: 20px auto;
+    max-width: 40%; /* Ensure the grid container width is responsive */
+    padding: 0 10px; /* Add horizontal padding to prevent overlap */
+}
+
+.player-box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    width: 228px; /* Fixed width */
+    box-sizing: border-box; /* Include padding and border in the box's total width and height */
+}
+
+.player-top {
+    flex: 1 0 20%; /* Top part takes 25% of height */
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-bottom {
+    flex: 1 0 80%; /* Bottom part takes 75% of height */
+    padding-top: 5px;
+    padding-right: 0px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    overflow: auto; /* Handle overflow if content is too large */
+}
+
+.name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.info-table, .attr-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.info-table td, .attr-table td {
+    padding: 2px 4px;
+}
+
+.info-table .info {
+    font-size: 0.6rem;
+}
+
+.attr-table {
+    font-size: 0.7rem;
+}
+
+.attribute {
+    width: 70px;
+}
+
+.balls {
+    text-align: left;
+}
+
+.ball-image {
+    width: 10px; /* Adjust size as needed */
+    height: 10px;
+    margin-right: 0px; /* Space between images */
+}
+
+.nrOfBalls {
+    margin-right: 0;
+    text-align: right;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 1140px) {
+    .grid-container {
+        grid-template-columns: repeat(3, minmax(228px, 1fr)); /* Adjust minimum size for smaller screens */
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 740px) {
+    .grid-container {
+        grid-template-columns: repeat(2, minmax(228px, 1fr)); /* Adjust minimum size for smaller screens */
+    }
+}

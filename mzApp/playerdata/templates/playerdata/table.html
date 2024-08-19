@@ -40,11 +40,10 @@
         </div>
         {% endfor %}
     </div>
-
-    <!-- Add JavaScript just before the closing body tag -->
+    
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const ballImageSrc = "{% static 'images/ball.png' %}"; // Update with your ball image path
+        const ballImageSrc = "{% static 'images/ball.png' %}";
 
         document.querySelectorAll('.balls').forEach(element => {
             const value = parseInt(element.getAttribute('data-value'), 10);
